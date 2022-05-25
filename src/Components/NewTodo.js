@@ -32,7 +32,7 @@ const NewTodo = () => {
   };
 
   useEffect(() => {
-    console.log("Re-Rendered")
+    console.log("Re-Rendered");
   },[items]);
 
 
