@@ -13,6 +13,18 @@ const NewTodo = () => {
   const [value, setValue] = useState("");
 
 
+  const changeState=(id)=>{
+        let temp_items = [...items];
+        let temp_items_element = {...temp_items[id-1]};
+        if(temp_items_element.state==false)
+            temp_items_element.state = true;
+        else
+            temp_items_element.state = false;
+        temp_items[id-1] = temp_items_element;
+        setItems(temp_items);
+        console.log(id);
+  }
+
   const updateValue = (e) => {
     setValue(e.target.value);
     console.log(value);
@@ -73,7 +85,7 @@ const NewTodo = () => {
         </div>
       )}
       </div>
-    <FilterButtons todos={items}></FilterButtons>
+    <FilterButtons todos={items} changeState={changeState}></FilterButtons>
     </div>
   );
 };
