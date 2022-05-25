@@ -1,5 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdAdd, MdClose } from "react-icons/md";
+import FilterButtons from "./FilterButtons";
+
+
 const NewTodo = () => {
   const [show, setShow] = useState(false);
   const [items, setItems] = useState([
@@ -8,11 +11,15 @@ const NewTodo = () => {
     { id: 3, description: "Buy Food", state: true },
   ]);
   const [value, setValue] = useState("");
+
+
   const updateValue = (e) => {
     setValue(e.target.value);
     console.log(value);
     console.log(items);
   };
+
+
   const newValue = (e) => {
     e.preventDefault();
     if(value!=""){
@@ -23,8 +30,15 @@ const NewTodo = () => {
         setValue("")
     }
   };
+
+  useEffect(() => {
+    console.log("Re-Rendered")
+  },[items]);
+
+
   return (
-    <div class="h-100">
+    <div>
+    <div class="h-1/3">
       <button class="m-5 mt-9">
         {!show && (
           <MdAdd
@@ -43,7 +57,7 @@ const NewTodo = () => {
         <div>
           <form class="p-1 m-1" onSubmit={newValue}>
             <input
-              class="w-2/6 ml-3 p-1"
+              class="w-2/6 ml-3 p-1 border-2 border-indigo-500"
               type="text"
               name="name"
               placeholder="Enter the TODO item"
@@ -58,6 +72,8 @@ const NewTodo = () => {
           </form>
         </div>
       )}
+      </div>
+    <FilterButtons todos={items}></FilterButtons>
     </div>
   );
 };
