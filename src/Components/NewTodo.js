@@ -21,11 +21,9 @@ const NewTodo = () => {
         else
             temp_items_element.state = false;
         console.log(id);
-        if(id-1>=0)
-        {
         temp_items[id-1] = temp_items_element;
         setItems(temp_items);
-        }
+        
   }
 
   const updateValue = (e) => {
