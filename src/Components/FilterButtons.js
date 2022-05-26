@@ -8,6 +8,10 @@ const FilterButtons = (props) => {
         props.changeState(e);
         console.log(e);
   }
+  const delItem1 = (e) => {
+        props.delElement(e);
+        console.log(e);
+  }
 
   useEffect(() => {
     setItems(props.todos);
@@ -26,7 +30,7 @@ const FilterButtons = (props) => {
             </div>
         </div>
         <div class="overflow-auto max-h-96" >
-            <RenderTodos todos={items} toShow={value} changeState={changeState1}></RenderTodos>
+            <RenderTodos todos={items} toShow={value} changeState={changeState1} delElement={delItem1}></RenderTodos>
         </div>
         
     </div>

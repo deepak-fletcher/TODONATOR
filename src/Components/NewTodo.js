@@ -26,6 +26,24 @@ const NewTodo = () => {
         
   }
 
+  const delElement=(id)=>{
+    let temp_items = [...items];
+    let value1 = 0;
+    for (var i=0; i<temp_items.length; i++)
+    {
+        if(temp_items[i].id == id)
+        {
+          value1=5;
+          temp_items.splice(i,1);
+        }
+        if(value1==5&&i<temp_items.length)
+        {
+          temp_items[i].id = temp_items[i].id-1
+        }
+    }
+    setItems(temp_items);
+  }
+
   const updateValue = (e) => {
     setValue(e.target.value);
     console.log(value);
@@ -86,7 +104,7 @@ const NewTodo = () => {
         </div>
       )}
       </div>
-    <FilterButtons todos={items} changeState={changeState}></FilterButtons>
+    <FilterButtons todos={items} changeState={changeState} delElement={delElement}></FilterButtons>
     </div>
   );
 };
