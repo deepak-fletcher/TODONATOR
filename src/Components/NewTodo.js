@@ -69,26 +69,29 @@ const NewTodo = () => {
 
   return (
     <div>
-    <div class="h-1/3">
-      <button class="m-5 mt-9">
+    <div class="h-24 m-auto">
+      <div class="mt-10 mb-8">
         {!show && (
           <MdAdd
-            class="bg-indigo-500 hover:cursor-pointer w-10 h-10 m-5 mt-9 hover:bg-indigo-400 hover:w-11"
+            data-aos="flip-left"
+            class="rounded-2xl m-auto bg-indigo-500 hover:cursor-pointer w-10 h-10  hover:bg-indigo-400 hover:w-11"
             onClick={() => setShow(true)}
           ></MdAdd>
         )}
         {show && (
           <MdClose
-            class="bg-indigo-500 hover:cursor-pointer w-10 h-10 m-5 mt-9 hover:bg-indigo-400 hover:w-11"
+            data-aos="flip-left"
+            class="rounded-2xl m-auto bg-indigo-500 hover:cursor-pointer w-10 h-10  hover:bg-indigo-400 hover:w-11"
             onClick={() => setShow(false)}
           ></MdClose>
         )}
-      </button>
+      </div>
       {show && (
         <div>
           <form class="p-1 m-1" onSubmit={newValue}>
             <input
-              class="w-2/6 ml-3 p-1 border-2 border-indigo-500"
+              data-aos="zoom-in"
+              class="rounded-2xl w-3/6 max-w-2xl ml-3 p-1 border-2 border-indigo-500"
               type="text"
               name="name"
               placeholder="Enter the TODO item"
@@ -96,7 +99,8 @@ const NewTodo = () => {
               onChange={updateValue}
             />
             <input
-              class="w-15 text-black hover:bg-indigo-400 hover:cursor-pointer bg-indigo-500 pl-3 pr-3 pt-1 ml-3 mr-1 pb-1"
+              data-aos="zoom-in"
+              class="rounded-2xl w-15 text-black hover:bg-indigo-400 hover:cursor-pointer bg-indigo-500 pl-3 pr-3 pt-1 ml-3 mr-1 pb-1"
               type="submit"
               value="ADD"
             />
