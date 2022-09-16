@@ -1,0 +1,8 @@
+.render{
+    height: 40vh;
+    overflow:auto;
+    margin: 10px;
+}
+.render1{
+    overflow:none;
+}
